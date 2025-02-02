@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { use } from "react";
 
 const Navbar = () => {
-  const [ListNav] = use(["home", "skills", "projects", "contact"]);
+  const [ListNav] = useState(["home", "skills", "projects", "contact"]);
   return (
     <header>
       <div className="logo">
@@ -10,7 +10,7 @@ const Navbar = () => {
       </div>
       <nav>
         {ListNav.map((value, key) => (
-          <span></span>
+          <span key={key}>{value}</span>
         ))}
       </nav>
     </header>
