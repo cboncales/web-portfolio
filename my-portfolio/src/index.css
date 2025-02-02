@@ -59,7 +59,7 @@ header {
     gap: 30px;
     & span {
       cursor: pointer;
-      & .active {
+      &.active {
         color: #e945e3;
         text-shadow: 0 0 5px #7a43b6;
       }
