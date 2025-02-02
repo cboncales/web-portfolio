@@ -1,19 +1,20 @@
-function Header() {
+import React from "react";
+import { use } from "react";
+
+const Navbar = () => {
+  const [ListNav] = use(["home", "skills", "projects", "contact"]);
   return (
     <header>
-      <h1 className="text-3xl font-bold underline bg-cyan-300">My Portfolio</h1>
+      <div className="logo">
+        <img src="" alt="" />
+      </div>
       <nav>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Services</li>
-          <li>Project</li>
-          <li>Blog</li>
-          <li>Contact</li>
-        </ul>
+        {ListNav.map((value, key) => (
+          <span></span>
+        ))}
       </nav>
     </header>
   );
-}
+};
 
-export default Header;
+export default Navbar;
