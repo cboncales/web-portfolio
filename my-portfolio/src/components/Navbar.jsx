@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { use } from "react";
+import { connect } from "react-redux";
+import { changeTabActive } from "../redux/action";
 
-const Navbar = () => {
+const Navbar = ({ activeTab }) => {
   const [ListNav] = useState(["home", "skills", "projects", "contact"]);
   return (
     <header>
@@ -10,11 +11,16 @@ const Navbar = () => {
       </div>
       <nav>
         {ListNav.map((value, key) => (
-          <span key={key}>{value}</span>
+          <span key={key} className="">
+            {value}
+          </span>
         ))}
       </nav>
     </header>
   );
 };
+const mapStateToProps = (state) => ({
+  activeTab: state.activeTab,
+});
 
-export default Navbar;
+export default connect(mapStateToProps, { changeTabActive })(Navbar);
