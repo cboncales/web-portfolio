@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { changeTabActive } from "../redux/action";
 
 const Navbar = ({ activeTab }) => {
   const [ListNav] = useState(["home", "skills", "projects", "contact"]);
+  const dispath = useDispatch();
+  const changeTab = (value) => {
+    dispath(changeTabActive(value));
+  };
   return (
     <header>
       <div className="logo">
@@ -11,7 +15,11 @@ const Navbar = ({ activeTab }) => {
       </div>
       <nav>
         {ListNav.map((value, key) => (
-          <span key={key} className="">
+          <span
+            key={key}
+            className={activeTab === value ? "active" : ""}
+            onClick={() => changeTab(value)}
+          >
             {value}
           </span>
         ))}
