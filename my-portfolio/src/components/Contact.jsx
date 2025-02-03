@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import CustomHook from "./CustomHook";
 
 const Contact = () => {
   const [ListContacts] = useState([
@@ -15,8 +16,10 @@ const Contact = () => {
       value: "Clark Boncales",
     },
   ]);
+  const refTab = useRef();
+  CustomHook(refTab);
   return (
-    <section className="contacts">
+    <section className="contacts" ref={refTab}>
       <div className="title">This is my Contacts</div>
       <div className="des">
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi quis
