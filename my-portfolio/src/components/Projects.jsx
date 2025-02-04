@@ -33,7 +33,7 @@ const Projects = () => {
     },
   ]);
   return (
-    <section className="projects">
+    <section className="Projects">
       <div className="title">This is my Projects</div>
       <div className="des">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
