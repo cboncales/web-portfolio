@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import CustomHook from "./CustomHook";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPersonCircleQuestion,
@@ -6,6 +7,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Projects = () => {
+  const refTab = useRef();
+  const refDivs = useRef([]);
+  CustomHook(refTab, refDivs);
   const [listProjects] = useState([
     {
       name: "UniTrade",
@@ -33,15 +37,17 @@ const Projects = () => {
     },
   ]);
   return (
-    <section className="Projects">
-      <div className="title">This is my Projects</div>
-      <div className="des">
+    <section className="Projects" ref={refTab}>
+      <div className="title" ref={(eL) => eL && refDivs.current.push(eL)}>
+        This is my Projects
+      </div>
+      <div className="des" ref={(eL) => eL && refDivs.current.push(eL)}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum
         architecto eaque autem molestias dolorum quasi blanditiis quod fuga
         modi. Quas nostrum labore consequuntur ratione reiciendis optio suscipit
         repellendus laboriosam aspernatur.
       </div>
-      <div className="list">
+      <div className="list" ref={(eL) => eL && refDivs.current.push(eL)}>
         {listProjects.map((value, key) => (
           <div key={key} className="item">
             <div className="images">

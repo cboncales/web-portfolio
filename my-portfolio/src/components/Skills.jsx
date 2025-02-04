@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import CustomHook from "./CustomHook";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faReact,
@@ -10,6 +11,9 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Skills = () => {
+  const refTab = useRef();
+  const refDivs = useRef([]);
+  CustomHook(refTab, refDivs);
   const [ListSkills] = useState([
     {
       name: "Bootstrap",
@@ -43,15 +47,17 @@ const Skills = () => {
     },
   ]);
   return (
-    <section className="Skills">
-      <div className="title">This is my Tech Stack</div>
-      <div className="dev">
+    <section className="Skills" ref={refTab}>
+      <div className="title" ref={(eL) => eL && refDivs.current.push(eL)}>
+        This is my Tech Stack
+      </div>
+      <div className="dev" ref={(eL) => eL && refDivs.current.push(eL)}>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad suscipit
         culpa eveniet excepturi obcaecati cupiditate temporibus quam ea incidunt
         placeat, quo in numquam. Consequuntur quo reiciendis accusamus doloribus
         ut maxime.
       </div>
-      <div className="list">
+      <div className="list" ref={(eL) => eL && refDivs.current.push(eL)}>
         {ListSkills.map((value, key) => (
           <div key={key} className="item">
             <FontAwesomeIcon icon={value.icon} />
