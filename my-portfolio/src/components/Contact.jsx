@@ -17,17 +17,20 @@ const Contact = () => {
     },
   ]);
   const refTab = useRef();
-  CustomHook(refTab);
+  const divs = useRef([]);
+  CustomHook(refTab, divs);
   return (
-    <section className="contacts" ref={refTab}>
-      <div className="title">This is my Contacts</div>
-      <div className="des">
+    <section className="Contact" ref={refTab}>
+      <div className="title" ref={(eL) => eL && divs.current.push(eL)}>
+        This is my Contacts
+      </div>
+      <div className="des" ref={(eL) => eL && divs.current.push(eL)}>
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi quis
         accusantium excepturi? Eligendi libero unde eaque corrupti. Possimus,
         illum porro esse amet, sunt perspiciatis labore explicabo aspernatur
         laborum facilis repudiandae?
       </div>
-      <div className="list">
+      <div className="list" ref={(eL) => eL && divs.current.push(eL)}>
         {ListContacts.map((value, key) => (
           <div key={key} className="item">
             <h3>{value.title}</h3>

@@ -43,7 +43,7 @@ const Skills = () => {
     },
   ]);
   return (
-    <section className="skills">
+    <section className="Skills">
       <div className="title">This is my Tech Stack</div>
       <div className="dev">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad suscipit
